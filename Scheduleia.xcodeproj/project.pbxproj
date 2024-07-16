@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B904C4CA2C46595E00809D04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B904C4C92C46595E00809D04 /* LoginViewController.swift */; };
+		B904C4CC2C46707100809D04 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B904C4CB2C46707100809D04 /* RegisterViewController.swift */; };
 		B9113CA42C463BED009208C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9113CA32C463BED009208C2 /* AppDelegate.swift */; };
 		B9113CA62C463BED009208C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9113CA52C463BED009208C2 /* SceneDelegate.swift */; };
 		B9113CA82C463BED009208C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9113CA72C463BED009208C2 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		B904C4C92C46595E00809D04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B904C4CB2C46707100809D04 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B9113CA02C463BED009208C2 /* Scheduleia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scheduleia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9113CA32C463BED009208C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9113CA52C463BED009208C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				B9113CA52C463BED009208C2 /* SceneDelegate.swift */,
 				B9113CA72C463BED009208C2 /* ViewController.swift */,
 				B9113CA92C463BED009208C2 /* Main.storyboard */,
+				B904C4CB2C46707100809D04 /* RegisterViewController.swift */,
 				B904C4C92C46595E00809D04 /* LoginViewController.swift */,
 				B9113CAF2C463BEE009208C2 /* Assets.xcassets */,
 				B9113CB12C463BEE009208C2 /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 				B9113CA82C463BED009208C2 /* ViewController.swift in Sources */,
 				B9113CA42C463BED009208C2 /* AppDelegate.swift in Sources */,
 				B9113CAE2C463BED009208C2 /* Scheduleia.xcdatamodeld in Sources */,
+				B904C4CC2C46707100809D04 /* RegisterViewController.swift in Sources */,
 				B904C4CA2C46595E00809D04 /* LoginViewController.swift in Sources */,
 				B9113CA62C463BED009208C2 /* SceneDelegate.swift in Sources */,
 			);
