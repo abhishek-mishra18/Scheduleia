@@ -211,7 +211,9 @@
                     <navigationItem key="navigationItem" id="AoN-Yw-tZP"/>
                     <size key="freeformSize" width="393" height="852"/>
                     <connections>
+                        <outlet property="passwordTextField" destination="6Gi-lz-lMy" id="Vum-8B-H1r"/>
                         <outlet property="userNameTextField" destination="UYY-Ut-ham" id="Oua-DJ-IAi"/>
+                        <segue destination="Rzi-qc-0aC" kind="show" identifier="loginSegue" id="t31-pn-6Jj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra8-DC-Wde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -376,6 +378,9 @@
             <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="t31-pn-6Jj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="textfield" width="298" height="93"/>
         <image name="todoApplogo" width="800" height="600"/>
