@@ -1,5 +1,5 @@
 //
-//  TodoScreenViewController.swift
+//  AllTaskViewController.swift
 //  Scheduleia
 //
 //  Created by Abhishek on 17/07/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodoScreenViewController: UIViewController {
+class AllTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

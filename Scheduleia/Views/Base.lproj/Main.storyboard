@@ -213,7 +213,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="6Gi-lz-lMy" id="Vum-8B-H1r"/>
                         <outlet property="userNameTextField" destination="UYY-Ut-ham" id="Oua-DJ-IAi"/>
-                        <segue destination="Rzi-qc-0aC" kind="show" identifier="loginSegue" id="t31-pn-6Jj"/>
+                        <segue destination="On3-62-Yzl" kind="show" identifier="loginSegue" id="t31-pn-6Jj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ra8-DC-Wde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -335,7 +335,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="4hh-d3-e2x" id="aeR-ms-WB5"/>
                         <outlet property="usernameTextField" destination="X2k-aD-Fq2" id="EDB-Y5-gsM"/>
-                        <segue destination="Rzi-qc-0aC" kind="show" identifier="TodoScreenViewController" id="nOM-MA-Fey"/>
+                        <segue destination="On3-62-Yzl" kind="show" identifier="TodoScreenViewController" id="nOM-MA-Fey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn5-bQ-4XS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -343,21 +343,53 @@
             </objects>
             <point key="canvasLocation" x="2583.969465648855" y="300.7042253521127"/>
         </scene>
-        <!--Todo Screen View Controller-->
+        <!--Today's Task-->
         <scene sceneID="Xup-Gb-M1p">
             <objects>
                 <viewController id="Rzi-qc-0aC" customClass="TodoScreenViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oez-f1-bq8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-m6-Vfe">
+                                <rect key="frame" x="16" y="103" width="361" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="PDo-mD-qMW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="8Kx-m6-Vfe" firstAttribute="bottom" secondItem="PDo-mD-qMW" secondAttribute="bottom" id="Sec-wr-RAi"/>
+                            <constraint firstItem="8Kx-m6-Vfe" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="16" id="TBM-KI-jJB"/>
+                            <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" secondItem="8Kx-m6-Vfe" secondAttribute="trailing" constant="16" id="dli-sf-soP"/>
+                            <constraint firstItem="8Kx-m6-Vfe" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="hxF-A4-4lb"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Today's Task" image="todaytask" id="ZIV-rv-bFz"/>
                     <navigationItem key="navigationItem" id="jgJ-eM-c4g"/>
+                    <connections>
+                        <outlet property="TableViewController" destination="8Kx-m6-Vfe" id="pal-iG-eyH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R40-vt-wX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3614" y="-30"/>
+            <point key="canvasLocation" x="3562.5954198473282" y="664.78873239436621"/>
+        </scene>
+        <!--All Tasks-->
+        <scene sceneID="MWJ-17-dUx">
+            <objects>
+                <viewController id="jdA-45-QFw" customClass="AllTaskViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Be7-OB-QIM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="QlC-vA-5FW"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="All Tasks" image="alltask" id="clj-O8-wJa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53L-0M-LUH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4724" y="665"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LQM-aE-Kdb">
@@ -377,12 +409,33 @@
             </objects>
             <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="37D-Uf-SBF">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="On3-62-Yzl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="4fb-FO-pis"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpj-ks-CFT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Rzi-qc-0aC" kind="relationship" relationship="viewControllers" id="5W5-vy-Tta"/>
+                        <segue destination="jdA-45-QFw" kind="relationship" relationship="viewControllers" id="hPz-qs-8AA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePe-h7-Lsp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4171.7557251908393" y="-70.422535211267615"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="t31-pn-6Jj"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="alltask" width="48" height="48"/>
         <image name="textfield" width="298" height="93"/>
+        <image name="todaytask" width="30" height="30"/>
         <image name="todoApplogo" width="800" height="600"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
