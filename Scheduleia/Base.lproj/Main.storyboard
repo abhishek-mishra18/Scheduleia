@@ -226,19 +226,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3E-nx-EwZ">
-                                <rect key="frame" x="16" y="586" width="361" height="55"/>
-                                <color key="backgroundColor" red="0.66067223850000001" green="0.071263304109999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.33941274160000001" green="0.047542790049999999" blue="0.44549965860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Register">
-                                    <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="LoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vuw-yL-C6C"/>
-                                    <action selector="loginButtonTapped:" destination="elX-LZ-myz" eventType="touchUpInside" id="SMQ-q7-05G"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9aE-4K-okj">
                                 <rect key="frame" x="10" y="255" width="373" height="274"/>
                                 <subviews>
@@ -312,29 +299,63 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3E-nx-EwZ">
+                                <rect key="frame" x="16" y="672" width="361" height="41"/>
+                                <color key="backgroundColor" red="0.66067223850000001" green="0.071263304109999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.33941274160000001" green="0.047542790049999999" blue="0.44549965860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Register">
+                                    <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="LoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vuw-yL-C6C"/>
+                                    <action selector="RegisterButtonTapped:" destination="elX-LZ-myz" eventType="touchUpInside" id="6OS-hi-gAw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6D2-bc-MPg"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="u3E-nx-EwZ" firstAttribute="centerX" secondItem="9aE-4K-okj" secondAttribute="centerX" id="2Cd-Be-e42"/>
-                            <constraint firstItem="u3E-nx-EwZ" firstAttribute="top" secondItem="9aE-4K-okj" secondAttribute="bottom" constant="57" id="Ce0-kY-fdb"/>
+                            <constraint firstItem="u3E-nx-EwZ" firstAttribute="top" secondItem="9aE-4K-okj" secondAttribute="bottom" constant="143" id="Ce0-kY-fdb"/>
                             <constraint firstItem="9aE-4K-okj" firstAttribute="centerX" secondItem="lrW-qY-9x1" secondAttribute="centerX" id="IKP-g3-wMg"/>
                             <constraint firstItem="9aE-4K-okj" firstAttribute="leading" secondItem="6D2-bc-MPg" secondAttribute="leading" constant="10" id="Jcc-bt-TYr"/>
                             <constraint firstAttribute="bottom" secondItem="9aE-4K-okj" secondAttribute="bottom" constant="323" id="L8Q-ib-6Gw"/>
                             <constraint firstItem="u3E-nx-EwZ" firstAttribute="leading" secondItem="lrW-qY-9x1" secondAttribute="leadingMargin" id="XT2-wS-knE"/>
                             <constraint firstItem="9aE-4K-okj" firstAttribute="top" secondItem="lrW-qY-9x1" secondAttribute="top" constant="255" id="fXn-f6-LDK"/>
-                            <constraint firstItem="6D2-bc-MPg" firstAttribute="bottom" secondItem="u3E-nx-EwZ" secondAttribute="bottom" constant="177" id="kfG-a5-VpX"/>
+                            <constraint firstItem="6D2-bc-MPg" firstAttribute="bottom" secondItem="u3E-nx-EwZ" secondAttribute="bottom" constant="105" id="kfG-a5-VpX"/>
                             <constraint firstItem="9aE-4K-okj" firstAttribute="top" secondItem="RgF-a2-lc9" secondAttribute="bottom" constant="59" id="niU-rw-thf"/>
                             <constraint firstItem="9aE-4K-okj" firstAttribute="centerX" secondItem="RgF-a2-lc9" secondAttribute="centerX" id="uWB-6w-CHr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yMc-gR-nta"/>
                     <size key="freeformSize" width="393" height="852"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="4hh-d3-e2x" id="aeR-ms-WB5"/>
+                        <outlet property="usernameTextField" destination="X2k-aD-Fq2" id="EDB-Y5-gsM"/>
+                        <segue destination="Rzi-qc-0aC" kind="show" identifier="TodoScreenViewController" id="nOM-MA-Fey"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jn5-bQ-4XS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationItem id="Kit-k3-hqc"/>
             </objects>
-            <point key="canvasLocation" x="2583.969465648855" y="301.40845070422534"/>
+            <point key="canvasLocation" x="2583.969465648855" y="300.7042253521127"/>
+        </scene>
+        <!--Todo Screen View Controller-->
+        <scene sceneID="Xup-Gb-M1p">
+            <objects>
+                <viewController id="Rzi-qc-0aC" customClass="TodoScreenViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oez-f1-bq8">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PDo-mD-qMW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jgJ-eM-c4g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R40-vt-wX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3614" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LQM-aE-Kdb">
@@ -358,6 +379,9 @@
     <resources>
         <image name="textfield" width="298" height="93"/>
         <image name="todoApplogo" width="800" height="600"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
