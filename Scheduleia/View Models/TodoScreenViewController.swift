@@ -26,7 +26,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                 // Configure the cell with example data
                 if indexPath.row == 0 {
                     cell.colorLine.backgroundColor = .red
-                    cell.leftImage.image = UIImage(named: "checkmark")
+                    cell.leftImage.image = UIImage(named: "check-mark")
                     cell.headingLabel.text = "Meeting with a client"
                     cell.descriptionLabel.text = "Discuss about the tasks when will be..."
                     cell.deadlineLabel.text = "12:00 - 13:00"

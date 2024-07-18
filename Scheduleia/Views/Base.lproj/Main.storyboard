@@ -352,17 +352,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-m6-Vfe">
-                                <rect key="frame" x="16" y="103" width="361" height="666"/>
+                                <rect key="frame" x="16" y="166" width="361" height="603"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Y-p6-Yad">
+                                <rect key="frame" x="16" y="103" width="106" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="Wji-x0-FkQ"/>
+                                    <constraint firstAttribute="height" constant="55" id="ZIi-Aj-hXA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TamilSangamMN-Bold" family="Tamil Sangam MN" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq6-u8-qCp">
+                                <rect key="frame" x="120" y="103" width="106" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Bsy-lK-KCY"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="X5x-rH-E9b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TamilSangamMN" family="Tamil Sangam MN" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PDo-mD-qMW"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
+                            <constraint firstItem="Fq6-u8-qCp" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="120" id="1ZQ-js-kWi"/>
+                            <constraint firstItem="07Y-p6-Yad" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="16" id="4u7-E1-4nc"/>
+                            <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fq6-u8-qCp" secondAttribute="trailing" symbolic="YES" id="A4I-gK-seT"/>
                             <constraint firstItem="8Kx-m6-Vfe" firstAttribute="bottom" secondItem="PDo-mD-qMW" secondAttribute="bottom" id="Sec-wr-RAi"/>
                             <constraint firstItem="8Kx-m6-Vfe" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="16" id="TBM-KI-jJB"/>
                             <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" secondItem="8Kx-m6-Vfe" secondAttribute="trailing" constant="16" id="dli-sf-soP"/>
-                            <constraint firstItem="8Kx-m6-Vfe" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="hxF-A4-4lb"/>
+                            <constraint firstItem="Fq6-u8-qCp" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="gfN-Y4-hcl"/>
+                            <constraint firstItem="07Y-p6-Yad" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="hUT-np-mCF"/>
+                            <constraint firstItem="8Kx-m6-Vfe" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" constant="63" id="hxF-A4-4lb"/>
+                            <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="07Y-p6-Yad" secondAttribute="trailing" symbolic="YES" id="iNn-Pr-xNO"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today's Task" image="todaytask" id="ZIV-rv-bFz"/>
@@ -416,6 +442,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4fb-FO-pis"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpj-ks-CFT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
