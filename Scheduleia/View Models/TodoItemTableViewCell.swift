@@ -9,14 +9,16 @@ import UIKit
 
 class TodoItemTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var deadlineLabel: UILabel!
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var colorLine: UIView!
     
+    @IBOutlet weak var images: UIImageView!
+    @IBOutlet weak var Deadline: UILabel!
+    @IBOutlet weak var Details: UILabel!
+    @IBOutlet weak var Description: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.images.layer.cornerRadius = images.frame.size.width / 2
+        images.clipsToBounds = true
         
     }
 
@@ -24,5 +26,8 @@ class TodoItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+//    func commonInit(_name: String){
+//        self
+//    }
     
 }

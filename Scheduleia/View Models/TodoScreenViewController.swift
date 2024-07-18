@@ -8,11 +8,37 @@
 import UIKit
 
 class TodoScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var TableViewController: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewController.register(UINib(nibName: "TodoItemTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoItemTableViewCell")
                 TableViewController.dataSource = self
                 TableViewController.delegate = self
+        
+        let button = UIButton()
+                button.setTitle("Add Task", for: .normal)
+                button.backgroundColor = .systemBlue
+                
+                button.translatesAutoresizingMaskIntoConstraints = false
+                view.addSubview(button)
+                        
+                button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+                
+                if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
+                            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(50 + tabBarHeight)).isActive = true
+                        }
+                
+                button.layer.cornerRadius = button.frame.size.width/2
+                button.clipsToBounds = true
+                
+//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+                    
+
+                
+                
+//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+                    
+
         // Do any additional setup after loading the view.
     }
     
@@ -26,29 +52,42 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                 // Configure the cell with example data
                 if indexPath.row == 0 {
                     cell.colorLine.backgroundColor = .red
-                    cell.leftImage.image = UIImage(named: "check-mark")
-                    cell.headingLabel.text = "Meeting with a client"
-                    cell.descriptionLabel.text = "Discuss about the tasks when will be..."
-                    cell.deadlineLabel.text = "12:00 - 13:00"
+                    cell.images.image = UIImage(named: "check-mark")
+                    cell.Description.text = "Meeting with a client"
+                    cell.Details.text = "Discuss about the tasks when will be..."
+                    cell.Deadline.text = "12:00 - 13:00"
                 } else if indexPath.row == 1 {
                     cell.colorLine.backgroundColor = .orange
-                    cell.leftImage.image = UIImage(named: "bell")
-                    cell.headingLabel.text = "Call Sam."
-                    cell.descriptionLabel.text = "Ask about something..."
-                    cell.deadlineLabel.text = "Until 6:00 pm"
+                    cell.images.image = UIImage(named: "bell")
+                    cell.Description.text = "Call Sam."
+                    cell.Details.text = "Ask about something..."
+                    cell.Deadline.text = "Until 6:00 pm"
                 } else {
                     cell.colorLine.backgroundColor = .blue
-                    cell.leftImage.image = UIImage(named: "list")
-                    cell.headingLabel.text = "Glossary List"
-                    cell.descriptionLabel.text = "Discuss about the tasks when will be..."
-                    cell.deadlineLabel.text = "Today"
+                    cell.images.image = UIImage(named: "list")
+                    cell.Description.text = "Glossary List"
+                    cell.Details.text = "Discuss about the tasks when will be..."
+                    cell.Deadline.text = "Today"
                 }
                 
                 return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+                return 150
+            }
+        func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+                let footerView = UIView()
+                footerView.backgroundColor = .clear
+                return footerView
+            }
 
-    @IBOutlet weak var TableViewController: UITableView!
+            func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+                return 20 // Space between cells
+            }
+        }
+
+    
     
     
 
@@ -62,4 +101,3 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     }
     */
 
-}
