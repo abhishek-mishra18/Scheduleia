@@ -351,9 +351,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-m6-Vfe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8Kx-m6-Vfe">
                                 <rect key="frame" x="0.0" y="146" width="393" height="623"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vEo-JL-mwk">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vEo-JL-mwk" id="v7P-jN-I91">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="l3p-sv-ujy">
+                                        <rect key="frame" x="0.0" y="94" width="393" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l3p-sv-ujy" id="kcE-Ks-E1m">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="r6o-cf-hR4">
+                                        <rect key="frame" x="0.0" y="138" width="393" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r6o-cf-hR4" id="N3j-6G-Xf2">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Y-p6-Yad">
                                 <rect key="frame" x="16" y="103" width="106" height="55"/>
@@ -375,26 +402,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYB-mY-jyi">
+                                <rect key="frame" x="276" y="705" width="101" height="48"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title=" + New"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PDo-mD-qMW"/>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Fq6-u8-qCp" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="120" id="1ZQ-js-kWi"/>
                             <constraint firstItem="07Y-p6-Yad" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="16" id="4u7-E1-4nc"/>
                             <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fq6-u8-qCp" secondAttribute="trailing" symbolic="YES" id="A4I-gK-seT"/>
+                            <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" secondItem="QYB-mY-jyi" secondAttribute="trailing" constant="16" id="GQC-1y-4Lg"/>
                             <constraint firstItem="8Kx-m6-Vfe" firstAttribute="bottom" secondItem="PDo-mD-qMW" secondAttribute="bottom" id="Sec-wr-RAi"/>
                             <constraint firstItem="8Kx-m6-Vfe" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" id="TBM-KI-jJB"/>
+                            <constraint firstItem="QYB-mY-jyi" firstAttribute="leading" secondItem="PDo-mD-qMW" secondAttribute="leading" constant="276" id="Wc2-Ho-Abo"/>
                             <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" secondItem="8Kx-m6-Vfe" secondAttribute="trailing" id="dli-sf-soP"/>
+                            <constraint firstItem="QYB-mY-jyi" firstAttribute="top" secondItem="8Kx-m6-Vfe" secondAttribute="bottom" constant="-64" id="emp-ud-92j"/>
                             <constraint firstItem="Fq6-u8-qCp" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="gfN-Y4-hcl"/>
                             <constraint firstItem="07Y-p6-Yad" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" id="hUT-np-mCF"/>
                             <constraint firstItem="8Kx-m6-Vfe" firstAttribute="top" secondItem="PDo-mD-qMW" secondAttribute="top" constant="43" id="hxF-A4-4lb"/>
                             <constraint firstItem="PDo-mD-qMW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="07Y-p6-Yad" secondAttribute="trailing" symbolic="YES" id="iNn-Pr-xNO"/>
+                            <constraint firstItem="PDo-mD-qMW" firstAttribute="bottom" secondItem="QYB-mY-jyi" secondAttribute="bottom" constant="16" id="iyw-Pw-12g"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Today's Task" image="todaytask" id="ZIV-rv-bFz"/>
                     <navigationItem key="navigationItem" id="jgJ-eM-c4g"/>
                     <connections>
                         <outlet property="TableViewController" destination="8Kx-m6-Vfe" id="pal-iG-eyH"/>
+                        <outlet property="addNewButton" destination="QYB-mY-jyi" id="vGi-Ir-afI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R40-vt-wX3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

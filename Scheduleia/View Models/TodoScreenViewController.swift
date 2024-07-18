@@ -9,36 +9,19 @@ import UIKit
 
 class TodoScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var TableViewController: UITableView!
+    
+    @IBOutlet weak var addNewButton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewController.register(UINib(nibName: "TodoItemTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoItemTableViewCell")
                 TableViewController.dataSource = self
                 TableViewController.delegate = self
+        addNewButton.layer.cornerRadius = addNewButton.frame.size.width/4
+        addNewButton.clipsToBounds = true
         
-        let button = UIButton()
-                button.setTitle("Add Task", for: .normal)
-                button.backgroundColor = .systemBlue
-                
-                button.translatesAutoresizingMaskIntoConstraints = false
-                view.addSubview(button)
-                        
-                button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-                
-                if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
-                            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(50 + tabBarHeight)).isActive = true
-                        }
-                
-                button.layer.cornerRadius = button.frame.size.width/2
-                button.clipsToBounds = true
-                
-//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-                    
-
-                
-                
-//                button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-                    
-
         // Do any additional setup after loading the view.
     }
     
@@ -54,7 +37,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                     cell.colorLine.backgroundColor = .red
                     cell.images.image = UIImage(named: "check-mark")
                     cell.Description.text = "Meeting with a client"
-                    cell.Details.text = "Discuss about the tasks when will be..."
+                    cell.Details.text = "Discuss about the tasks..."
                     cell.Deadline.text = "12:00 - 13:00"
                 } else if indexPath.row == 1 {
                     cell.colorLine.backgroundColor = .orange
@@ -66,7 +49,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                     cell.colorLine.backgroundColor = .blue
                     cell.images.image = UIImage(named: "list")
                     cell.Description.text = "Glossary List"
-                    cell.Details.text = "Discuss about the tasks when will be..."
+                    cell.Details.text = "Discuss about the tasks..."
                     cell.Deadline.text = "Today"
                 }
                 
