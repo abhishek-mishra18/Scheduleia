@@ -66,7 +66,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
             }
 
             func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-                return 20 // Space between cells
+                return 20
             }
         }
 

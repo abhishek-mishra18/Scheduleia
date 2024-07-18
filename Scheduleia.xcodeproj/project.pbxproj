@@ -26,6 +26,8 @@
 		B9113CCA2C463BEE009208C2 /* ScheduleiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9113CC92C463BEE009208C2 /* ScheduleiaUITestsLaunchTests.swift */; };
 		B9561ADE2C492531008DC1CF /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561ADD2C492531008DC1CF /* TodoItemTableViewCell.swift */; };
 		B9561AE02C492583008DC1CF /* TodoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */; };
+		B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */; };
+		B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE52C49A426008DC1CF /* AddNewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		B9113CC92C463BEE009208C2 /* ScheduleiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B9561ADD2C492531008DC1CF /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
 		B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoItemTableViewCell.xib; sourceTree = "<group>"; };
+		B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		B9561AE52C49A426008DC1CF /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,8 @@
 		B90301EA2C47B02E00B139C5 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */,
+				B9561AE52C49A426008DC1CF /* AddNewViewController.swift */,
 				B9113CA72C463BED009208C2 /* ViewController.swift */,
 				B9561ADD2C492531008DC1CF /* TodoItemTableViewCell.swift */,
 				B90301E72C47918400B139C5 /* TodoScreenViewController.swift */,
@@ -319,6 +325,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */,
+				B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */,
 				B90301E82C47918400B139C5 /* TodoScreenViewController.swift in Sources */,
 				B90301F82C47D14C00B139C5 /* AllTaskViewController.swift in Sources */,
 				B9561ADE2C492531008DC1CF /* TodoItemTableViewCell.swift in Sources */,
