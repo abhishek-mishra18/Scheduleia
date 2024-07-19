@@ -6,56 +6,68 @@
 //
 
 import UIKit
-
-class AddNewViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
+import FirebaseFirestore
+import FirebaseAuth
+class AddNewViewController: UIViewController {
     
+    let db = Firestore.firestore()
     
     @IBOutlet weak var setPriorityButton: UIButton!
     
-    @IBOutlet weak var ListTableView: UITableView!
-    
     @IBOutlet weak var setPriorityImage: UIImageView!
+    
+    @IBOutlet weak var newTitle: UITextField!
     
     @IBOutlet weak var addRow: UIButton!
     
+    @IBOutlet weak var newDescription: UITextField!
     
-    @IBAction func rowButtonTapped(_ sender: Any) {
-        let alertController = UIAlertController(title: "Input Required", message: "Please enter a value", preferredStyle: .alert)
-        
-                alertController.addTextField { textField in
-                    textField.placeholder = "Enter something..."
-                    textField.keyboardType = .default
-                }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alertController.addAction(cancelAction)
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                    if let textField = alertController.textFields?.first {
-                        let inputText = textField.text
-                        print("Input text: \(inputText ?? "")")
-                    }
-                }
-                alertController.addAction(okAction)
-
-                present(alertController, animated: true, completion: nil)
-            }
+    @IBOutlet weak var datePick: UIDatePicker!
+    
+    var taskPriority = 0
+    
+    @IBAction func SavebuttonTapped(_ sender: Any) {
+        if let todoTitle = newTitle?.text , !todoTitle.isEmpty
+            ,let todoDescription = newDescription?.text
+            ,let todoDeadline = datePick?.date
+            ,let todoSender = Auth.auth().currentUser?.email {
+            let todoDate = Date().timeIntervalSince1970
+            let dateFormatter = DateFormatter()
+            let date = todoDeadline
+            dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+            let dateString = dateFormatter.string(from: date)
+            
+            db.collection("todoData").addDocument(data: ["title" : todoTitle,
+                                                         "description" : todoDescription,
+                                                         "deadline" : dateString,
+                                                         "priority" : taskPriority,
+                                                         "email" : todoSender,
+                                                         "time" : todoDate],
+                                                  completion: nil)
+            print("in")
+        }else{
+            print("err")
+        }
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ListTableView.dataSource = self
-        ListTableView.delegate = self
-        
-        addRow.layer.cornerRadius = addRow.frame.size.width/4
-        addRow.clipsToBounds = true
+        //addRow.layer.cornerRadius = addRow.frame.size.width/4
+        //addRow.clipsToBounds = true
         
         let highPriorityAction = UIAction(title: "High Priority", image: UIImage(systemName: "exclamationmark.circle.fill")) { action in
-                    print("High Priority selected")
+            self.setPriorityImage.image = #imageLiteral(resourceName: "circle")
+            self.taskPriority = 0
                 }
         let mediumPriorityAction = UIAction(title: "Medium Priority", image: UIImage(systemName: "exclamationmark.circle")) { action in
-                    self.setPriorityImage.image = #imageLiteral(resourceName: "bell")
+                    self.setPriorityImage.image = #imageLiteral(resourceName: "circle (1)")
+                    self.taskPriority = 1
                 }
 
         let lowPriorityAction = UIAction(title: "Low Priority", image: UIImage(systemName: "circle")) { action in
-                    self.setPriorityImage.image = #imageLiteral(resourceName: "list")
+                    self.setPriorityImage.image = #imageLiteral(resourceName: "full-moon")
+                    self.taskPriority = 2
                 }
         let menu = UIMenu(title: "", children: [highPriorityAction, mediumPriorityAction, lowPriorityAction])
         
@@ -65,15 +77,6 @@ class AddNewViewController: UIViewController , UITableViewDelegate, UITableViewD
         setPriorityImage.image = #imageLiteral(resourceName: "exclamation-mark")
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
-        cell.listCellLabel.text = "Row \(indexPath.row)"
-                return cell
-    }
     
     
     

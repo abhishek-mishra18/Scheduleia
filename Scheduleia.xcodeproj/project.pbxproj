@@ -28,6 +28,10 @@
 		B9561AE02C492583008DC1CF /* TodoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */; };
 		B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */; };
 		B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE52C49A426008DC1CF /* AddNewViewController.swift */; };
+		B9970B902C4A4F69003728CF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B9970B8F2C4A4F69003728CF /* FirebaseDatabase */; };
+		B9970B922C4A4F69003728CF /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B9970B912C4A4F69003728CF /* FirebaseFirestore */; };
+		B9970B942C4A4F69003728CF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9970B932C4A4F69003728CF /* FirebaseFirestoreSwift */; };
+		B9970B962C4A7507003728CF /* todoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9970B952C4A7507003728CF /* todoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,7 @@
 		B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoItemTableViewCell.xib; sourceTree = "<group>"; };
 		B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		B9561AE52C49A426008DC1CF /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
+		B9970B952C4A7507003728CF /* todoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9970B942C4A4F69003728CF /* FirebaseFirestoreSwift in Frameworks */,
+				B9970B902C4A4F69003728CF /* FirebaseDatabase in Frameworks */,
+				B9970B922C4A4F69003728CF /* FirebaseFirestore in Frameworks */,
 				B90301E22C478ABE00B139C5 /* FirebaseAuth in Frameworks */,
 				B90301E42C478ABE00B139C5 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
@@ -127,6 +135,7 @@
 		B90301EC2C47BD5100B139C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B9970B952C4A7507003728CF /* todoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +213,9 @@
 			packageProductDependencies = (
 				B90301E12C478ABE00B139C5 /* FirebaseAuth */,
 				B90301E32C478ABE00B139C5 /* FirebaseAuthCombine-Community */,
+				B9970B8F2C4A4F69003728CF /* FirebaseDatabase */,
+				B9970B912C4A4F69003728CF /* FirebaseFirestore */,
+				B9970B932C4A4F69003728CF /* FirebaseFirestoreSwift */,
 			);
 			productName = Scheduleia;
 			productReference = B9113CA02C463BED009208C2 /* Scheduleia.app */;
@@ -326,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */,
+				B9970B962C4A7507003728CF /* todoModel.swift in Sources */,
 				B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */,
 				B90301E82C47918400B139C5 /* TodoScreenViewController.swift in Sources */,
 				B90301F82C47D14C00B139C5 /* AllTaskViewController.swift in Sources */,
@@ -698,6 +711,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B90301E02C478ABE00B139C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
+		};
+		B9970B8F2C4A4F69003728CF /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B90301E02C478ABE00B139C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		B9970B912C4A4F69003728CF /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B90301E02C478ABE00B139C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B9970B932C4A4F69003728CF /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B90301E02C478ABE00B139C5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

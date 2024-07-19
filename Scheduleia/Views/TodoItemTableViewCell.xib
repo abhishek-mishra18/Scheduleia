@@ -10,25 +10,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoItemTableViewCell" rowHeight="133" id="KGk-i7-Jjw" customClass="TodoItemTableViewCell" customModule="Scheduleia" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="404" height="133"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoItemTableViewCell" rowHeight="96" id="KGk-i7-Jjw" customClass="TodoItemTableViewCell" customModule="Scheduleia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="96"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="404" height="133"/>
+                <rect key="frame" x="0.0" y="0.0" width="415" height="96"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOi-mg-9Nv">
-                        <rect key="frame" x="10" y="10" width="6" height="113"/>
+                        <rect key="frame" x="10" y="10" width="18" height="73"/>
                         <color key="backgroundColor" systemColor="systemRedColor"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-BJ-ptg">
-                        <rect key="frame" x="35" y="24" width="92" height="85"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="92" id="lqg-pz-65Q"/>
-                        </constraints>
-                    </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mPb-s6-RIm">
-                        <rect key="frame" x="145" y="36" width="41.333333333333343" height="61"/>
+                        <rect key="frame" x="147" y="16" width="41.333333333333343" height="61"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2y-cD-vnB">
                                 <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
@@ -43,24 +37,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFq-du-u6t">
-                                <rect key="frame" x="0.0" y="40.666666666666671" width="41.333333333333336" height="20.333333333333329"/>
+                                <rect key="frame" x="0.0" y="40.666666666666664" width="41.333333333333336" height="20.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojN-Xa-0ZZ">
+                        <rect key="frame" x="47" y="29.333333333333332" width="53.666666666666657" height="34.333333333333343"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=" "/>
+                        <connections>
+                            <action selector="checkboxTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="71K-Ix-bJd"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="eOi-mg-9Nv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="BLh-rO-Eod"/>
-                    <constraint firstItem="Q1n-BJ-ptg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="DSa-Ut-3MQ"/>
-                    <constraint firstItem="Q1n-BJ-ptg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="IjG-bx-rcL"/>
+                    <constraint firstItem="ojN-Xa-0ZZ" firstAttribute="leading" secondItem="eOi-mg-9Nv" secondAttribute="trailing" constant="19" id="E3x-nv-pxX"/>
+                    <constraint firstItem="eOi-mg-9Nv" firstAttribute="centerY" secondItem="mPb-s6-RIm" secondAttribute="centerY" id="GBD-zg-gbf"/>
+                    <constraint firstItem="eOi-mg-9Nv" firstAttribute="centerY" secondItem="ojN-Xa-0ZZ" secondAttribute="centerY" id="J8W-Po-XAo"/>
                     <constraint firstAttribute="bottom" secondItem="eOi-mg-9Nv" secondAttribute="bottom" constant="10" id="NK5-8H-nSm"/>
-                    <constraint firstItem="Q1n-BJ-ptg" firstAttribute="centerY" secondItem="eOi-mg-9Nv" secondAttribute="centerY" id="TBa-Kd-YkK"/>
+                    <constraint firstItem="eOi-mg-9Nv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="OeB-Fq-a2L"/>
                     <constraint firstItem="eOi-mg-9Nv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WTl-zl-4yV"/>
-                    <constraint firstItem="Q1n-BJ-ptg" firstAttribute="centerY" secondItem="mPb-s6-RIm" secondAttribute="centerY" id="Wii-g8-VnM"/>
-                    <constraint firstItem="Q1n-BJ-ptg" firstAttribute="leading" secondItem="eOi-mg-9Nv" secondAttribute="trailing" constant="19" id="eo9-wm-lQQ"/>
-                    <constraint firstItem="mPb-s6-RIm" firstAttribute="leading" secondItem="Q1n-BJ-ptg" secondAttribute="trailing" constant="18" id="h8I-Pt-AGy"/>
+                    <constraint firstItem="mPb-s6-RIm" firstAttribute="leading" secondItem="ojN-Xa-0ZZ" secondAttribute="trailing" constant="46.333333333333343" id="Wt8-4A-8RD"/>
+                    <constraint firstAttribute="trailing" secondItem="eOi-mg-9Nv" secondAttribute="trailing" constant="378" id="pee-jL-YSG"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -68,13 +69,14 @@
                 <outlet property="Deadline" destination="zFq-du-u6t" id="H9F-gY-cDQ"/>
                 <outlet property="Description" destination="G2y-cD-vnB" id="h6N-aU-kKu"/>
                 <outlet property="Details" destination="hCd-Md-8Fo" id="tJO-hQ-sH8"/>
+                <outlet property="checkbox" destination="ojN-Xa-0ZZ" id="9OV-mm-wa5"/>
                 <outlet property="colorLine" destination="eOi-mg-9Nv" id="OXb-f5-1QY"/>
-                <outlet property="images" destination="Q1n-BJ-ptg" id="Vc8-Hx-ylh"/>
             </connections>
-            <point key="canvasLocation" x="203.0534351145038" y="51.056338028169016"/>
+            <point key="canvasLocation" x="211.4503816793893" y="75.352112676056336"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

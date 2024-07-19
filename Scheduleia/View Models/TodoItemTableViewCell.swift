@@ -11,23 +11,33 @@ class TodoItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var colorLine: UIView!
     
-    @IBOutlet weak var images: UIImageView!
+    @IBOutlet weak var checkbox: UIButton!
+    
     @IBOutlet weak var Deadline: UILabel!
     @IBOutlet weak var Details: UILabel!
     @IBOutlet weak var Description: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.images.layer.cornerRadius = images.frame.size.width / 2
-        images.clipsToBounds = true
-        
+        checkbox.setImage(UIImage(systemName: "square"), for: .normal)
+        checkbox.setImage(UIImage(systemName: "checkmark.square"), for: .selected)
+        setupCell()
     }
 
+    @IBAction func checkboxTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
-//    func commonInit(_name: String){
-//        self
-//    }
+    
+    
+    private func setupCell() {
+            self.contentView.layer.cornerRadius = 10
+            self.contentView.layer.masksToBounds = true
+        self.contentView.layer.borderWidth = 0.5
+            self.contentView.layer.borderColor = UIColor.lightGray.cgColor
+        }
+
     
 }
