@@ -16,6 +16,8 @@ class AddNewViewController: UIViewController {
     
     @IBOutlet weak var setPriorityImage: UIImageView!
     
+    @IBOutlet weak var setPriorityLabel: UILabel!
+    
     @IBOutlet weak var newTitle: UITextField!
     
     @IBOutlet weak var addRow: UIButton!
@@ -59,15 +61,19 @@ class AddNewViewController: UIViewController {
         let highPriorityAction = UIAction(title: "High Priority", image: UIImage(systemName: "exclamationmark.circle.fill")) { action in
             self.setPriorityImage.image = #imageLiteral(resourceName: "circle")
             self.taskPriority = 0
+            self.setPriorityLabel.text = "High Priority"
                 }
         let mediumPriorityAction = UIAction(title: "Medium Priority", image: UIImage(systemName: "exclamationmark.circle")) { action in
                     self.setPriorityImage.image = #imageLiteral(resourceName: "circle (1)")
                     self.taskPriority = 1
+                    self.setPriorityLabel.text = "Medium Priority"
                 }
 
         let lowPriorityAction = UIAction(title: "Low Priority", image: UIImage(systemName: "circle")) { action in
                     self.setPriorityImage.image = #imageLiteral(resourceName: "full-moon")
                     self.taskPriority = 2
+                    self.setPriorityLabel.text = "Low Priority"
+
                 }
         let menu = UIMenu(title: "", children: [highPriorityAction, mediumPriorityAction, lowPriorityAction])
         

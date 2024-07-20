@@ -12,6 +12,7 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func RegisterButtonTapped(_ sender: UIButton) {
@@ -36,6 +37,8 @@ class RegisterViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerButton.layer.cornerRadius = registerButton.frame.size.width/4
+        registerButton.clipsToBounds = false
 
         // Do any additional setup after loading the view.
     }

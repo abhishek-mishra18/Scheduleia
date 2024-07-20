@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userNameTextField: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -37,7 +38,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loginButton.layer.cornerRadius = loginButton.frame.size.width/4
+        loginButton.clipsToBounds = false
         
     }
     

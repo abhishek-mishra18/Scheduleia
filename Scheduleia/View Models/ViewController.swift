@@ -9,8 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let titleText = "📋SCHEDULEIA"
+    let titleText = "📋 SCHEDULEIA"
 
+    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var registerButton: UIButton!
+    
     @IBOutlet weak var appName: UILabel!
     
     @IBAction func LoginTapped(_ sender: Any) {
@@ -21,6 +25,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.layer.cornerRadius = loginButton.frame.size.width/4
+        loginButton.clipsToBounds = false
+        
+        registerButton.layer.cornerRadius = registerButton.frame.size.width/4
+        registerButton.clipsToBounds = false
         
         var index = 0.0
         for letter in titleText {
