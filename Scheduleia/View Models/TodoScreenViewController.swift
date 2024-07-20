@@ -65,10 +65,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
         TableViewController.delegate = self
         addNewButton.layer.cornerRadius = addNewButton.frame.size.width/4
         addNewButton.clipsToBounds = true
-        TableViewController.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-
         loadTodoData()
-        // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +74,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemTableViewCell", for: indexPath) as! TodoItemTableViewCell
-                
+        
         switch model[indexPath.row].priority {
         case 0:
             cell.colorLine.backgroundColor = .red
@@ -89,37 +86,74 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.colorLine.backgroundColor = .black
         }
         cell.Description.text = model[indexPath.row].title
-        cell.Details.text = model[indexPath.row].description
-        cell.Deadline.text = model[indexPath.row].deadline
-//
+        //cell.Details.text = model[indexPath.row].description
+//        let startIndex = mainString.index(.startIndex, offsetBy: 7)
+//        let endIndex = mainString.index(mainString.startIndex, offsetBy: 12)
+        let index = model[indexPath.row].deadline.index(model[indexPath.row].deadline.startIndex, offsetBy: 10)
+        let dateToShow = String(model[indexPath.row].deadline[..<index])
+
+        cell.Deadline.text = dateToShow
+        //
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteTodos(whereField: "title", isEqualTo: model[indexPath.row].title)
+            model.remove(at: indexPath.row)
+            TableViewController.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                return 100
-            }
-        func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-                let footerView = UIView()
-                footerView.backgroundColor = .clear
-                return footerView
-            }
-
-            func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-                return 20
+        return 100
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    
+    func deleteTodos(whereField field: String, isEqualTo value: Any) {
+        let todoQuery = db.collection("todoData").whereField(field, isEqualTo: value)
+        
+        todoQuery.getDocuments { (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error.localizedDescription)")
+            } else {
+                for document in querySnapshot!.documents {
+                    document.reference.delete { error in
+                        if let error = error {
+                            print("Error removing document: \(error.localizedDescription)")
+                        } else {
+                            print("Successfully deleted todo with ID: \(document.documentID)")
+                        }
+                    }
+                }
             }
         }
-
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+}
+    
+    
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
