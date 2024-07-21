@@ -101,6 +101,21 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
         return .delete
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(identifier: "testVC") as? SingleTaskViewController
+        
+        let task = model[indexPath.row]
+        vc?.titleString = task.title
+        vc?.descriptionString = task.description
+        vc?.createdString = String(task.time)
+        vc?.deadlineString = task.deadline
+        vc?.priority = task.priority
+
+        
+        navigationController?.pushViewController(vc!, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             deleteTodos(whereField: "title", isEqualTo: model[indexPath.row].title)
