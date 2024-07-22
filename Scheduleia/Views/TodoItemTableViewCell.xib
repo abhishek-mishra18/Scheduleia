@@ -72,7 +72,7 @@
                 <outlet property="checkbox" destination="ojN-Xa-0ZZ" id="9OV-mm-wa5"/>
                 <outlet property="colorLine" destination="eOi-mg-9Nv" id="OXb-f5-1QY"/>
             </connections>
-            <point key="canvasLocation" x="211.4503816793893" y="75.352112676056336"/>
+            <point key="canvasLocation" x="211.4503816793893" y="74.647887323943664"/>
         </tableViewCell>
     </objects>
     <resources>

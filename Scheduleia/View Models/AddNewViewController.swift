@@ -70,6 +70,7 @@ class AddNewViewController: UIViewController {
                                                              "deadline" : dateString,
                                                              "priority" : taskPriority,
                                                              "email" : todoSender,
+                                                             "isDone": false,
                                                              "time" : todoDate],
                                                       completion: nil)
                 print("in")
