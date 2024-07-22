@@ -19,57 +19,6 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var addNewButton: UIButton!
     
-    func loadTodoData() {
-        db.collection("todoData").order(by: "time")
-            .addSnapshotListener({(QuerySnapshot,error) in
-                self.model = []
-                if((error) != nil){
-                    print(error!)
-                }else{
-                    if let documents = QuerySnapshot?.documents{
-                        for document in documents {
-                            let data = document.data()
-                            if let title = data["title"] as? String,
-                               let description = data["description"] as? String,
-                               let deadline = data["deadline"] as?  String,
-                               let priority = data["priority"] as? Int,
-                               let email = data["email"] as? String {
-                                let time = data["time"] as? Int
-                                let isDone = data["isDone"] as? Bool
-                                
-                                if(Auth.auth().currentUser?.email == email){
-                                    let todo = TodoModel(
-                                        title:title,
-                                        description: description,
-                                        time: time ?? 0,
-                                        priority: priority,
-                                        email: email,
-                                        deadline: deadline,
-                                        isDone: isDone ?? false
-                                    )
-                                    
-                                    self.model.append(todo)
-                                }
-                                self.model.sort { (item1, item2) -> Bool in
-                                                                if item1.isDone == item2.isDone{
-                                                                    let dateFormatter = DateFormatter()
-                                                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                                                    let date1 = dateFormatter.date(from: item1.deadline) ?? Date()
-                                                                    let date2 = dateFormatter.date(from: item2.deadline) ?? Date()
-                                                                    return date1 < date2
-                                                                }
-                                                                return !item1.isDone && item2.isDone
-                                                            }
-                                DispatchQueue.main.async {
-                                    self.TableViewController.reloadData()
-                                }
-                            }
-                        }
-                    }
-                }
-            })
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewController.register(UINib(nibName: "TodoItemTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoItemTableViewCell")
@@ -100,7 +49,6 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
         cell.Description.text = model[indexPath.row].title
         let index = model[indexPath.row].deadline.index(model[indexPath.row].deadline.startIndex, offsetBy: 10)
         let dateToShow = String(model[indexPath.row].deadline[..<index])
-
         cell.Deadline.text = dateToShow
         return cell
     }
@@ -108,19 +56,15 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(identifier: "testVC") as? SingleTaskViewController
-        
         let task = model[indexPath.row]
         vc?.titleString = task.title
         vc?.descriptionString = task.description
         vc?.createdString = String(task.time)
         vc?.deadlineString = task.deadline
         vc?.priority = task.priority
-
-        
         navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -148,7 +92,6 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func deleteTodos(whereField field: String, isEqualTo value: Any) {
         let todoQuery = db.collection("todoData").whereField(field, isEqualTo: value)
-        
         todoQuery.getDocuments { (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error.localizedDescription)")
@@ -164,6 +107,55 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
+    }
+    func loadTodoData() {
+        db.collection("todoData").order(by: "time")
+            .addSnapshotListener({(QuerySnapshot,error) in
+                self.model = []
+                if((error) != nil){
+                    print(error!)
+                }else{
+                    if let documents = QuerySnapshot?.documents{
+                        for document in documents {
+                            let data = document.data()
+                            if let title = data["title"] as? String,
+                               let description = data["description"] as? String,
+                               let deadline = data["deadline"] as?  String,
+                               let priority = data["priority"] as? Int,
+                               let email = data["email"] as? String {
+                                let time = data["time"] as? Int
+                                let isDone = data["isDone"] as? Bool
+                                
+                                if(Auth.auth().currentUser?.email == email){
+                                    let todo = TodoModel(
+                                        title:title,
+                                        description: description,
+                                        time: time ?? 0,
+                                        priority: priority,
+                                        email: email,
+                                        deadline: deadline,
+                                        isDone: isDone ?? false
+                                    )
+                                    self.model.append(todo)
+                                }
+                                self.model.sort { (item1, item2) -> Bool in
+                                                                if item1.isDone == item2.isDone{
+                                                                    let dateFormatter = DateFormatter()
+                                                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                                                    let date1 = dateFormatter.date(from: item1.deadline) ?? Date()
+                                                                    let date2 = dateFormatter.date(from: item2.deadline) ?? Date()
+                                                                    return date1 < date2
+                                                                }
+                                                                return !item1.isDone && item2.isDone
+                                                            }
+                                DispatchQueue.main.async {
+                                    self.TableViewController.reloadData()
+                                }
+                            }
+                        }
+                    }
+                }
+            })
     }
 }
     

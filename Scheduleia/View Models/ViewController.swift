@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         
         var index = 0.0
         for letter in titleText {
-            Timer.scheduledTimer(withTimeInterval: 0.1 * index, repeats: false, block: {(timer) in
+            Timer.scheduledTimer(withTimeInterval: 0.1 * index, repeats: false, block: { (timer) in
                 self.appName.text?.append(letter)
             })
             index += 1

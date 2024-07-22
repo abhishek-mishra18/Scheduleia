@@ -27,7 +27,6 @@
 		B916EFF52C4D84B1008D7D04 /* SingleTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B916EFF42C4D84B1008D7D04 /* SingleTaskViewController.swift */; };
 		B9561ADE2C492531008DC1CF /* TodoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561ADD2C492531008DC1CF /* TodoItemTableViewCell.swift */; };
 		B9561AE02C492583008DC1CF /* TodoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */; };
-		B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */; };
 		B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9561AE52C49A426008DC1CF /* AddNewViewController.swift */; };
 		B95FEBD02C4E2C5400EE9A3E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95FEBCF2C4E2C5400EE9A3E /* TabBarViewController.swift */; };
 		B9970B902C4A4F69003728CF /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B9970B8F2C4A4F69003728CF /* FirebaseDatabase */; };
@@ -76,7 +75,6 @@
 		B916EFF42C4D84B1008D7D04 /* SingleTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskViewController.swift; sourceTree = "<group>"; };
 		B9561ADD2C492531008DC1CF /* TodoItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItemTableViewCell.swift; sourceTree = "<group>"; };
 		B9561ADF2C492583008DC1CF /* TodoItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoItemTableViewCell.xib; sourceTree = "<group>"; };
-		B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		B9561AE52C49A426008DC1CF /* AddNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewViewController.swift; sourceTree = "<group>"; };
 		B95FEBCF2C4E2C5400EE9A3E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B9970B952C4A7507003728CF /* todoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoModel.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 		B90301EA2C47B02E00B139C5 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				B9561AE32C49776A008DC1CF /* ListTableViewCell.swift */,
 				B916EFF42C4D84B1008D7D04 /* SingleTaskViewController.swift */,
 				B9561AE52C49A426008DC1CF /* AddNewViewController.swift */,
 				B9113CA72C463BED009208C2 /* ViewController.swift */,
@@ -346,7 +343,6 @@
 				B9561AE62C49A426008DC1CF /* AddNewViewController.swift in Sources */,
 				B916EFF52C4D84B1008D7D04 /* SingleTaskViewController.swift in Sources */,
 				B9970B962C4A7507003728CF /* todoModel.swift in Sources */,
-				B9561AE42C49776A008DC1CF /* ListTableViewCell.swift in Sources */,
 				B95FEBD02C4E2C5400EE9A3E /* TabBarViewController.swift in Sources */,
 				B90301E82C47918400B139C5 /* TodoScreenViewController.swift in Sources */,
 				B90301F82C47D14C00B139C5 /* AllTaskViewController.swift in Sources */,
