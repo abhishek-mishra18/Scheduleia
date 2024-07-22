@@ -193,12 +193,24 @@
                                     <action selector="loginButtonTapped:" destination="iKd-7H-dE7" eventType="touchUpInside" id="j4S-6W-wGk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyS-fl-yvY">
+                                <rect key="frame" x="118" y="498.99999999999994" width="156" height="34.333333333333314"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="forgot password?">
+                                    <color key="baseForegroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="forgotPassword:" destination="iKd-7H-dE7" eventType="touchUpInside" id="ZCZ-4o-gcG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Oy-om-8BU"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="xJn-1x-KMt" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="16" id="2aZ-RC-dlT"/>
+                            <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="cyS-fl-yvY" secondAttribute="trailing" constant="119" id="2if-MK-2XF"/>
                             <constraint firstItem="zsl-Ls-Eg1" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="10" id="5Tl-gD-2Ej"/>
+                            <constraint firstItem="cyS-fl-yvY" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="118" id="MH0-Ax-ZLb"/>
                             <constraint firstItem="xJn-1x-KMt" firstAttribute="top" secondItem="zsl-Ls-Eg1" secondAttribute="bottom" constant="158" id="Qw6-UY-VX6"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="bottom" secondItem="xJn-1x-KMt" secondAttribute="bottom" constant="154.66999999999999" id="Xv4-p4-p9P"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="xJn-1x-KMt" secondAttribute="trailing" constant="15.67" id="chk-T6-fQy"/>
@@ -208,6 +220,7 @@
                             <constraint firstItem="KmT-i1-tKZ" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="148.33000000000001" id="lmD-G8-vJA"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="zsl-Ls-Eg1" secondAttribute="trailing" constant="10" id="oxy-Ra-Y4q"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="KmT-i1-tKZ" secondAttribute="trailing" constant="148.33000000000001" id="qGc-nR-nr9"/>
+                            <constraint firstItem="cyS-fl-yvY" firstAttribute="top" secondItem="zsl-Ls-Eg1" secondAttribute="bottom" constant="27" id="ud9-TJ-kM3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AoN-Yw-tZP"/>
@@ -425,7 +438,7 @@
         <!--Add New View Controller-->
         <scene sceneID="as2-kK-NYA">
             <objects>
-                <viewController id="9Dl-cD-6Ff" customClass="AddNewViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addNewVC" id="9Dl-cD-6Ff" customClass="AddNewViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s4R-Vz-n0V">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,10 +577,10 @@
             </objects>
             <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="37D-Uf-SBF">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="On3-62-Yzl" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="On3-62-Yzl" customClass="TabBarViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4fb-FO-pis"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpj-ks-CFT">
@@ -641,10 +654,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-07-2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoC-gD-Gtc">
-                                <rect key="frame" x="277" y="343" width="100" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12-07-2024" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HoC-gD-Gtc">
+                                <rect key="frame" x="277" y="343" width="100" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wTk-eD-LIK"/>
+                                    <constraint firstAttribute="height" constant="48" id="wTk-eD-LIK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -699,7 +712,7 @@
                             <constraint firstItem="ow5-vS-dkW" firstAttribute="top" secondItem="qNt-7q-sFL" secondAttribute="top" id="dse-id-6F6"/>
                             <constraint firstItem="qNt-7q-sFL" firstAttribute="bottom" secondItem="fvJ-b6-j3c" secondAttribute="bottom" constant="529" id="fBJ-jn-A0d"/>
                             <constraint firstItem="qNt-7q-sFL" firstAttribute="trailing" secondItem="IAP-X9-qcQ" secondAttribute="trailing" constant="237" id="faZ-di-yfg"/>
-                            <constraint firstItem="HoC-gD-Gtc" firstAttribute="baseline" secondItem="G6G-f3-Qin" secondAttribute="baseline" id="hiw-uy-qY9"/>
+                            <constraint firstItem="HoC-gD-Gtc" firstAttribute="baseline" secondItem="G6G-f3-Qin" secondAttribute="baseline" constant="18" id="hiw-uy-qY9"/>
                             <constraint firstItem="qNt-7q-sFL" firstAttribute="trailing" secondItem="rw4-xd-LlG" secondAttribute="trailing" constant="281" id="iyu-tL-sez"/>
                             <constraint firstItem="qNt-7q-sFL" firstAttribute="trailing" secondItem="PHX-me-d1y" secondAttribute="trailing" constant="258" id="jJC-1R-WUx"/>
                             <constraint firstItem="qNt-7q-sFL" firstAttribute="trailing" secondItem="AOs-F2-4A8" secondAttribute="trailing" constant="281" id="nEz-67-13R"/>

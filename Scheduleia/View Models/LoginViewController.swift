@@ -36,6 +36,36 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func forgotPassword(_ sender: Any) {
+            let alert = UIAlertController(title: "Forgot Password", message: "Enter your email address", preferredStyle: .alert)
+            alert.addTextField { (textField) in
+                textField.placeholder = "Email"
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let resetAction = UIAlertAction(title: "Reset", style: .default) { [weak self] (_) in
+                guard let email = alert.textFields?.first?.text, !email.isEmpty else {
+                    let errorAlert = UIAlertController(title: "Error", message: "Please enter a valid email address", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(errorAlert, animated: true, completion: nil)
+                    return
+                }
+                Auth.auth().sendPasswordReset(withEmail: email) { error in
+                    if let error = error {
+                        let errorAlert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self?.present(errorAlert, animated: true, completion: nil)
+                    } else {
+                        let successAlert = UIAlertController(title: "Success", message: "Password reset email sent!", preferredStyle: .alert)
+                        successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                        self?.present(successAlert, animated: true, completion: nil)
+                    }
+                }
+            }
+            alert.addAction(cancelAction)
+            alert.addAction(resetAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = loginButton.frame.size.width/4

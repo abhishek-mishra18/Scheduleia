@@ -86,14 +86,10 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.colorLine.backgroundColor = .black
         }
         cell.Description.text = model[indexPath.row].title
-        //cell.Details.text = model[indexPath.row].description
-//        let startIndex = mainString.index(.startIndex, offsetBy: 7)
-//        let endIndex = mainString.index(mainString.startIndex, offsetBy: 12)
         let index = model[indexPath.row].deadline.index(model[indexPath.row].deadline.startIndex, offsetBy: 10)
         let dateToShow = String(model[indexPath.row].deadline[..<index])
 
         cell.Deadline.text = dateToShow
-        //
         return cell
     }
     

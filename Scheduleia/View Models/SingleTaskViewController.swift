@@ -29,6 +29,13 @@ class SingleTaskViewController: UIViewController {
 
     
     @IBAction func editButtonTapped(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as! AddNewViewController
+        vc.titleString = self.titleString
+        vc.descriptionString = self.descriptionString
+        vc.priorityEdit = self.priority
+        vc.deadLineEdit = deadlineString
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
