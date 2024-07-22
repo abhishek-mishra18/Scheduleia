@@ -10,7 +10,7 @@ import Foundation
 struct TodoModel {
     var title: String
     var description: String
-    var time: Int
+    var time: String
     var priority: Int
     var email: String
     var deadline: String

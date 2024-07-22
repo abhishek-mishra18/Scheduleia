@@ -19,6 +19,7 @@ class TodoItemTableViewCell: UITableViewCell {
     @IBOutlet weak var Details: UILabel!
     @IBOutlet weak var Description: UILabel!
     
+    var descriptionFilled: String?
     
     
     @IBAction func editButtonTapped(_ sender: Any) {

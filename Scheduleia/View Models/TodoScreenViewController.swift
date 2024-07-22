@@ -47,7 +47,8 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.colorLine.backgroundColor = .black
         }
         cell.priority = model[indexPath.row].priority
-        cell.Description.text = model[indexPath.row].description
+        cell.Description.text = model[indexPath.row].title
+        cell.descriptionFilled = model[indexPath.row].description
         let index = model[indexPath.row].deadline.index(model[indexPath.row].deadline.startIndex, offsetBy: 10)
         let dateToShow = String(model[indexPath.row].deadline[..<index])
         if(model[indexPath.row].isDone == true){
@@ -134,7 +135,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                let deadline = data["deadline"] as?  String,
                                let priority = data["priority"] as? Int,
                                let email = data["email"] as? String {
-                                let time = data["time"] as? Int
+                                let time = data["time"] as? String
                                 let isDone = data["isDone"] as? Bool
                                 let docId = data["docId"] as? String
                                 
@@ -142,7 +143,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                     let todo = TodoModel(
                                         title:title,
                                         description: description,
-                                        time: time ?? 0,
+                                        time: time ?? "",
                                         priority: priority,
                                         email: email,
                                         deadline: deadline,
@@ -214,7 +215,7 @@ extension TodoScreenViewController: deleteTodoItemFromTable{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as? AddNewViewController
             
             vc?.titleString = cell.title
-            vc?.descriptionString = cell.Description.text
+            vc?.descriptionString = cell.descriptionFilled
             vc?.priorityEdit = cell.priority
             vc?.deadLineEdit = cell.Deadline.text
             

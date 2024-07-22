@@ -59,20 +59,21 @@ class AddNewViewController: UIViewController {
                 ,let todoDescription = newDescription?.text
                 ,let todoDeadline = datePick?.date
                 ,let todoSender = Auth.auth().currentUser?.email {
-                let todoDate = Date().timeIntervalSince1970
+                let todoDate = Date()
                 let dateFormatter = DateFormatter()
                 let date = todoDeadline
                 dateFormatter.dateFormat = "dd MMMM yy HH:mm a"
                 let dateString = dateFormatter.string(from: date)
+                let createdDate = dateFormatter.string(from: todoDate)
                 let newDoc = db.collection("todoData").document()
-                newDoc.setData(["title" : todoTitle,
+                newDoc.setData([                             "title" : todoTitle,
                                                              "description" : todoDescription,
                                                              "deadline" : dateString,
                                                              "priority" : taskPriority,
                                                              "email" : todoSender,
                                                              "isDone": false,
                                                              "docId": newDoc.documentID,
-                                                             "time" : todoDate],
+                                                             "time" : createdDate],
                                                       completion: nil)
                 print("in")
             }else{
