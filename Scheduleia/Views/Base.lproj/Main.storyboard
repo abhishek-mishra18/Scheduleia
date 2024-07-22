@@ -399,7 +399,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYB-mY-jyi">
                                 <rect key="frame" x="276" y="705" width="101" height="48"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title=" + New"/>
+                                <buttonConfiguration key="configuration" style="filled" title=" + New">
+                                    <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="9Dl-cD-6Ff" kind="show" id="EoR-xW-4Zp"/>
                                 </connections>

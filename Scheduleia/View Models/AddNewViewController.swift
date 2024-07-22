@@ -34,7 +34,7 @@ class AddNewViewController: UIViewController {
     var deadLineEdit: String?
     
     @IBAction func SavebuttonTapped(_ sender: Any) {
-        if let title = titleString {
+        if let _ = titleString {
             updateData(whereField: "title", isEqualTo: titleString!)
             if let navigationController = self.navigationController {
                 let viewControllers = navigationController.viewControllers
@@ -62,7 +62,7 @@ class AddNewViewController: UIViewController {
                 let todoDate = Date().timeIntervalSince1970
                 let dateFormatter = DateFormatter()
                 let date = todoDeadline
-                dateFormatter.dateFormat = "yyyy-MM-dd-HH:mm:ss"
+                dateFormatter.dateFormat = "dd MMMM yy HH:mm a"
                 let dateString = dateFormatter.string(from: date)
                 
                 db.collection("todoData").addDocument(data: ["title" : todoTitle,
@@ -162,7 +162,7 @@ class AddNewViewController: UIViewController {
         let dateString = dateFormatter.string(from: date)
         
         documentRef.getDocuments{(querySnapshot, error) in
-            if let error = error {
+            if let _ = error {
                 print("Error getting documents")
             }else{
                 for document in querySnapshot!.documents {

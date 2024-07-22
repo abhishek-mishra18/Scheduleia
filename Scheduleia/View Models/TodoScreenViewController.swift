@@ -35,6 +35,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                let priority = data["priority"] as? Int,
                                let email = data["email"] as? String {
                                 let time = data["time"] as? Int
+                                let isDone = data["isDone"] as? Bool
                                 
                                 if(Auth.auth().currentUser?.email == email){
                                     let todo = TodoModel(
@@ -43,11 +44,22 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                         time: time ?? 0,
                                         priority: priority,
                                         email: email,
-                                        deadline: deadline
+                                        deadline: deadline,
+                                        isDone: isDone ?? false
                                     )
                                     
                                     self.model.append(todo)
                                 }
+                                self.model.sort { (item1, item2) -> Bool in
+                                                                if item1.isDone == item2.isDone{
+                                                                    let dateFormatter = DateFormatter()
+                                                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                                                    let date1 = dateFormatter.date(from: item1.deadline) ?? Date()
+                                                                    let date2 = dateFormatter.date(from: item2.deadline) ?? Date()
+                                                                    return date1 < date2
+                                                                }
+                                                                return !item1.isDone && item2.isDone
+                                                            }
                                 DispatchQueue.main.async {
                                     self.TableViewController.reloadData()
                                 }
