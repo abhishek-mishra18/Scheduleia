@@ -16,8 +16,9 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
+    var activityIndicator: UIActivityIndicatorView!
     @IBAction func loginButtonTapped(_ sender: Any) {
+        activityIndicator.startAnimating()
         if let email = userNameTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
                 if let error = error {
@@ -28,14 +29,18 @@ class LoginViewController: UIViewController {
                         self?.passwordTextField.text = ""
                     })
                     alert.addAction(action)
+                    self?.activityIndicator.stopAnimating()
                     self?.present(alert, animated: true)
                 }
                 else{
+                    self?.activityIndicator.stopAnimating()
                     self?.performSegue(withIdentifier: "loginSegue", sender: self)
                 }
             }
         }
     }
+    
+    
     
     @IBAction func forgotPassword(_ sender: Any) {
             let alert = UIAlertController(title: "Forgot Password", message: "Enter your email address", preferredStyle: .alert)
@@ -72,7 +77,16 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = loginButton.frame.size.width/4
         loginButton.clipsToBounds = false
         
+        setupActivityIndicator()
+        
     }
+    
+    func setupActivityIndicator() {
+            activityIndicator = UIActivityIndicatorView(style: .large)
+                activityIndicator.center = view.center
+                activityIndicator.hidesWhenStopped = true
+                view.addSubview(activityIndicator)
+            }
     
 
     /*

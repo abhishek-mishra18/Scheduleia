@@ -6,14 +6,29 @@
 //
 
 import UIKit
-
+protocol deleteTodoItemFromTable {
+    func taskCompleted(_ cell: TodoItemTableViewCell)
+    func editCell(_ cell: TodoItemTableViewCell)
+}
 class TodoItemTableViewCell: UITableViewCell {
+    
 
     @IBOutlet weak var colorLine: UIView!
     @IBOutlet weak var checkbox: UIButton!
     @IBOutlet weak var Deadline: UILabel!
     @IBOutlet weak var Details: UILabel!
     @IBOutlet weak var Description: UILabel!
+    
+    
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        delegate?.editCell(self)
+    }
+    var docId: String? = nil
+    var isDone: Bool? = false
+    var priority: Int?
+    var title: String?
+    var delegate: deleteTodoItemFromTable?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +39,7 @@ class TodoItemTableViewCell: UITableViewCell {
     
     @IBAction func checkboxTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
+        delegate?.taskCompleted(self)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

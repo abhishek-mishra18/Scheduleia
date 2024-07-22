@@ -46,10 +46,21 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
         default:
             cell.colorLine.backgroundColor = .black
         }
-        cell.Description.text = model[indexPath.row].title
+        cell.priority = model[indexPath.row].priority
+        cell.Description.text = model[indexPath.row].description
         let index = model[indexPath.row].deadline.index(model[indexPath.row].deadline.startIndex, offsetBy: 10)
         let dateToShow = String(model[indexPath.row].deadline[..<index])
+        if(model[indexPath.row].isDone == true){
+            cell.checkbox.isSelected = true
+        }
+        else{
+            cell.checkbox.isSelected = false
+        }
+        cell.docId = model[indexPath.row].docId
         cell.Deadline.text = dateToShow
+        cell.title = model[indexPath.row].title
+        cell.isDone = model[indexPath.row].isDone
+        cell.delegate = self
         return cell
     }
     
@@ -125,6 +136,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                let email = data["email"] as? String {
                                 let time = data["time"] as? Int
                                 let isDone = data["isDone"] as? Bool
+                                let docId = data["docId"] as? String
                                 
                                 if(Auth.auth().currentUser?.email == email){
                                     let todo = TodoModel(
@@ -134,10 +146,11 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                         priority: priority,
                                         email: email,
                                         deadline: deadline,
-                                        isDone: isDone ?? false
-                                    )
+                                        isDone: isDone ?? false,
+                                        docId: docId ?? "" )
+                                    
                                     self.model.append(todo)
-                                }
+                                        }
                                 self.model.sort { (item1, item2) -> Bool in
                                                                 if item1.isDone == item2.isDone{
                                                                     let dateFormatter = DateFormatter()
@@ -158,10 +171,57 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
             })
     }
 }
+
     
+extension TodoScreenViewController: deleteTodoItemFromTable{
     
+    func taskCompleted(_ cell: TodoItemTableViewCell) {
+        guard let docId = cell.docId , let isDone = cell.isDone else { return }
+        
+        db.collection("todoData").document(docId).updateData([
+            "isDone": !isDone ]
+        ) { error in
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                
+                alert.addAction(action)
+                self.present(alert, animated: true)
+            } else {
+                DispatchQueue.main.async {
+                    self.loadTodoData()
+                    self.TableViewController.reloadData()
+                }
+            }
+        }
+    }
     
-    
+        func editCell(_ cell: TodoItemTableViewCell) {
+            //var stringPriority: String
+            
+//            switch cell.priority{
+//            case 0:
+//                stringPriority = "High"
+//            case 1:
+//                stringPriority = "Medium"
+//            case 2:
+//                stringPriority = "Low"
+//            default:
+//                stringPriority = "Unspecified"
+//            }
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as? AddNewViewController
+            
+            vc?.titleString = cell.title
+            vc?.descriptionString = cell.Description.text
+            vc?.priorityEdit = cell.priority
+            vc?.deadLineEdit = cell.Deadline.text
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+}
+
     
     /*
      // MARK: - Navigation

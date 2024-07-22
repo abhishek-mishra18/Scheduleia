@@ -15,4 +15,5 @@ struct TodoModel {
     var email: String
     var deadline: String
     var isDone: Bool
+    var docId: String
 }

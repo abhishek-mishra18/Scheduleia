@@ -47,9 +47,23 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojN-Xa-0ZZ">
                         <rect key="frame" x="56" y="31.000000000000004" width="53.666666666666657" height="34.333333333333343"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=" "/>
+                        <buttonConfiguration key="configuration" style="plain" image="square" catalog="system" title=" ">
+                            <color key="baseForegroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </buttonConfiguration>
                         <connections>
                             <action selector="checkboxTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="71K-Ix-bJd"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wBO-Gf-Fp0">
+                        <rect key="frame" x="350" y="30" width="56" height="35"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system" title=" ">
+                            <backgroundConfiguration key="background"/>
+                            <color key="baseForegroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="editButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PHM-Y2-hVw"/>
                         </connections>
                     </button>
                 </subviews>
@@ -77,6 +91,7 @@
     </objects>
     <resources>
         <image name="square" catalog="system" width="128" height="114"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="121"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

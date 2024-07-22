@@ -64,13 +64,14 @@ class AddNewViewController: UIViewController {
                 let date = todoDeadline
                 dateFormatter.dateFormat = "dd MMMM yy HH:mm a"
                 let dateString = dateFormatter.string(from: date)
-                
-                db.collection("todoData").addDocument(data: ["title" : todoTitle,
+                let newDoc = db.collection("todoData").document()
+                newDoc.setData(["title" : todoTitle,
                                                              "description" : todoDescription,
                                                              "deadline" : dateString,
                                                              "priority" : taskPriority,
                                                              "email" : todoSender,
                                                              "isDone": false,
+                                                             "docId": newDoc.documentID,
                                                              "time" : todoDate],
                                                       completion: nil)
                 print("in")
