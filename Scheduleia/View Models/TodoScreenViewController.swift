@@ -82,9 +82,15 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            deleteTodos(whereField: "title", isEqualTo: model[indexPath.row].title)
-            model.remove(at: indexPath.row)
-            TableViewController.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            let confirm = UIAlertController(title: "Are you sure you want to delete?", message: nil, preferredStyle: .alert)
+            confirm.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {
+                _ in
+                self.deleteTodos(whereField: "title", isEqualTo: self.model[indexPath.row].title)
+                self.model.remove(at: indexPath.row)
+                self.TableViewController.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            }))
+            confirm.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+            self.present(confirm, animated: true)
         }
     }
     

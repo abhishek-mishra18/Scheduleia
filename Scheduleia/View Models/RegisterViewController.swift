@@ -15,7 +15,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var activityIndicator: UIActivityIndicatorView!
+    
     @IBAction func RegisterButtonTapped(_ sender: UIButton) {
+        activityIndicator.startAnimating()
         if let email = usernameTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
@@ -26,8 +29,10 @@ class RegisterViewController: UIViewController {
                         self.passwordTextField.text = ""
                     })
                     alert.addAction(action)
+                    self.activityIndicator.stopAnimating()
                     self.present(alert, animated: true)
                 }else{
+                    self.activityIndicator.stopAnimating()
                     self.performSegue(withIdentifier: "TodoScreenViewController", sender: self)
                 }
             }
@@ -39,9 +44,15 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         registerButton.layer.cornerRadius = registerButton.frame.size.width/4
         registerButton.clipsToBounds = false
-
-        // Do any additional setup after loading the view.
+        setupActivityIndicator()
     }
+    
+    func setupActivityIndicator() {
+            activityIndicator = UIActivityIndicatorView(style: .large)
+                activityIndicator.center = view.center
+                activityIndicator.hidesWhenStopped = true
+                view.addSubview(activityIndicator)
+            }
     
 
     /*

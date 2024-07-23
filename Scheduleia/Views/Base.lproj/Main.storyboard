@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewId" id="BYZ-38-t0r" customClass="ViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,9 +25,6 @@
                                 <color key="textColor" red="0.36998849545641044" green="0.016700512635408282" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todoApplogo" translatesAutoresizingMaskIntoConstraints="NO" id="SYg-Uy-1mN">
-                                <rect key="frame" x="0.0" y="54" width="393" height="374"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="XLh-VZ-EY3">
                                 <rect key="frame" x="10" y="679" width="373" height="139"/>
                                 <subviews>
@@ -40,7 +37,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.33941274160000001" green="0.047542790049999999" blue="0.44549965860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Login">
+                                            <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="LoginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mFt-bQ-ggG"/>
                                             <segue destination="iKd-7H-dE7" kind="show" id="EUI-Vg-HS6"/>
@@ -56,7 +55,9 @@
                                         </constraints>
                                         <color key="tintColor" red="0.33941274160000001" green="0.047542790049999999" blue="0.44549965860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Register"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Register">
+                                            <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <action selector="RegisterTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XaV-Ou-8NY"/>
                                             <segue destination="elX-LZ-myz" kind="show" id="MSY-Xx-8QV"/>
@@ -64,20 +65,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todoApplogo" translatesAutoresizingMaskIntoConstraints="NO" id="SYg-Uy-1mN">
+                                <rect key="frame" x="45" y="153" width="315" height="153"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" systemColor="systemGray5Color"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="SYg-Uy-1mN" secondAttribute="trailing" constant="-16" id="7lZ-dc-JkA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SYg-Uy-1mN" secondAttribute="trailing" constant="17" id="7lZ-dc-JkA"/>
                             <constraint firstItem="rDU-V2-isf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="GEy-ge-4I5"/>
-                            <constraint firstItem="rDU-V2-isf" firstAttribute="top" secondItem="SYg-Uy-1mN" secondAttribute="bottom" constant="-2" id="O5c-1P-I8t"/>
+                            <constraint firstItem="rDU-V2-isf" firstAttribute="top" secondItem="SYg-Uy-1mN" secondAttribute="bottom" constant="120" id="O5c-1P-I8t"/>
                             <constraint firstItem="XLh-VZ-EY3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gMQ-l8-9cX"/>
                             <constraint firstItem="rDU-V2-isf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="5.5" id="h2O-EW-4Dz"/>
                             <constraint firstItem="XLh-VZ-EY3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ik8-4a-7R0"/>
-                            <constraint firstItem="SYg-Uy-1mN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="inA-6T-7NO"/>
+                            <constraint firstItem="SYg-Uy-1mN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="inA-6T-7NO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XLh-VZ-EY3" secondAttribute="trailing" constant="10" id="iy7-8T-JIn"/>
                             <constraint firstItem="rDU-V2-isf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kz7-je-1Lp"/>
-                            <constraint firstItem="SYg-Uy-1mN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-49" id="phv-mt-wVv"/>
+                            <constraint firstItem="SYg-Uy-1mN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="50" id="phv-mt-wVv"/>
                             <constraint firstItem="rDU-V2-isf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pjd-4p-uIh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rDU-V2-isf" secondAttribute="trailing" constant="72" id="rRK-JN-KeL"/>
                         </constraints>
@@ -96,7 +102,7 @@
         <!--Login View Controller-->
         <scene sceneID="QLT-me-dUg">
             <objects>
-                <viewController id="iKd-7H-dE7" customClass="LoginViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="iKd-7H-dE7" customClass="LoginViewController" customModule="Scheduleia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ih0-E5-7Vc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,9 +204,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cyS-fl-yvY">
-                                <rect key="frame" x="118" y="498.99999999999994" width="156" height="34.333333333333314"/>
+                                <rect key="frame" x="118" y="499" width="167" height="54"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="forgot password?">
+                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password?">
                                     <color key="baseForegroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -212,19 +218,21 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="xJn-1x-KMt" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="16" id="2aZ-RC-dlT"/>
-                            <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="cyS-fl-yvY" secondAttribute="trailing" constant="119" id="2if-MK-2XF"/>
                             <constraint firstItem="zsl-Ls-Eg1" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="10" id="5Tl-gD-2Ej"/>
-                            <constraint firstItem="cyS-fl-yvY" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="118" id="MH0-Ax-ZLb"/>
+                            <constraint firstItem="cyS-fl-yvY" firstAttribute="top" secondItem="zsl-Ls-Eg1" secondAttribute="bottom" constant="27" id="6ta-gw-oHE"/>
                             <constraint firstItem="xJn-1x-KMt" firstAttribute="top" secondItem="zsl-Ls-Eg1" secondAttribute="bottom" constant="158" id="Qw6-UY-VX6"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="bottom" secondItem="xJn-1x-KMt" secondAttribute="bottom" constant="154.66999999999999" id="Xv4-p4-p9P"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="xJn-1x-KMt" secondAttribute="trailing" constant="15.67" id="chk-T6-fQy"/>
                             <constraint firstItem="zsl-Ls-Eg1" firstAttribute="top" secondItem="KmT-i1-tKZ" secondAttribute="bottom" constant="59" id="hDT-Hw-8nj"/>
+                            <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="cyS-fl-yvY" secondAttribute="trailing" constant="108" id="hQ5-5z-5TO"/>
+                            <constraint firstItem="cyS-fl-yvY" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="118" id="hpp-1v-G6i"/>
                             <constraint firstItem="zsl-Ls-Eg1" firstAttribute="top" secondItem="KmT-i1-tKZ" secondAttribute="bottom" constant="59" id="imx-3C-CGc"/>
                             <constraint firstItem="KmT-i1-tKZ" firstAttribute="top" secondItem="1Oy-om-8BU" secondAttribute="top" id="jYX-l4-hJq"/>
+                            <constraint firstItem="xJn-1x-KMt" firstAttribute="top" secondItem="cyS-fl-yvY" secondAttribute="bottom" constant="77" id="lc2-24-nBx"/>
                             <constraint firstItem="KmT-i1-tKZ" firstAttribute="leading" secondItem="1Oy-om-8BU" secondAttribute="leading" constant="148.33000000000001" id="lmD-G8-vJA"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="zsl-Ls-Eg1" secondAttribute="trailing" constant="10" id="oxy-Ra-Y4q"/>
                             <constraint firstItem="1Oy-om-8BU" firstAttribute="trailing" secondItem="KmT-i1-tKZ" secondAttribute="trailing" constant="148.33000000000001" id="qGc-nR-nr9"/>
-                            <constraint firstItem="cyS-fl-yvY" firstAttribute="top" secondItem="zsl-Ls-Eg1" secondAttribute="bottom" constant="27" id="ud9-TJ-kM3"/>
+                            <constraint firstAttribute="bottom" secondItem="cyS-fl-yvY" secondAttribute="bottom" constant="299" id="qLg-v3-fAu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AoN-Yw-tZP"/>
@@ -403,7 +411,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYB-mY-jyi">
                                 <rect key="frame" x="276" y="705" width="101" height="48"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title=" + New">
+                                <buttonConfiguration key="configuration" style="filled" title=" +">
                                     <color key="baseBackgroundColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -558,6 +566,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="QlC-vA-5FW"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="tintColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="All Tasks" image="alltask" id="clj-O8-wJa"/>
                 </viewController>
@@ -593,6 +602,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.36998849550000001" green="0.016700512640000002" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="Rzi-qc-0aC" kind="relationship" relationship="viewControllers" id="5W5-vy-Tta"/>
