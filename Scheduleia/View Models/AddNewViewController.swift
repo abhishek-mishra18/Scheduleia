@@ -66,15 +66,15 @@ class AddNewViewController: UIViewController {
                 let dateString = dateFormatter.string(from: date)
                 let createdDate = dateFormatter.string(from: todoDate)
                 let newDoc = db.collection("todoData").document()
-                newDoc.setData([                             "title" : todoTitle,
-                                                             "description" : todoDescription,
-                                                             "deadline" : dateString,
-                                                             "priority" : taskPriority,
-                                                             "email" : todoSender,
-                                                             "isDone": false,
-                                                             "docId": newDoc.documentID,
-                                                             "time" : createdDate],
-                                                      completion: nil)
+                newDoc.setData(["title" : todoTitle,
+                                "description" : todoDescription,
+                                "deadline" : dateString,
+                                "priority" : taskPriority,
+                                "email" : todoSender,
+                                "isDone": false,
+                                "docId": newDoc.documentID,
+                                "time" : createdDate],
+                                completion: nil)
                 print("in")
             }else{
                 print("err")
@@ -157,7 +157,7 @@ class AddNewViewController: UIViewController {
         }
         
         let documentRef = db.collection("todoData").whereField(field, isEqualTo: value)
-        let msgDate = Date().timeIntervalSince(self.datePick.date)
+        let _ = Date().timeIntervalSince(self.datePick.date)
         let date = datePick.date
         let dateFormatter = DateFormatter()
         
@@ -174,8 +174,7 @@ class AddNewViewController: UIViewController {
                         "description": self.newDescription.text!,
                         "deadline": dateString,
                         "priority": self.taskPriority,
-                        "email": Auth.auth().currentUser?.email ?? "",
-                        "time": msgDate]
+                        "email": Auth.auth().currentUser?.email ?? ""]
                     document.reference.updateData(updatedData) { error in
                         if let error = error {
                             print("Error updating document: \(error.localizedDescription)")

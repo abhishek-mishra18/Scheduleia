@@ -21,7 +21,7 @@ class TabBarViewController: UITabBarController {
         navigationItem.rightBarButtonItems = [gear,filter]
         let logoutAction = UIAction(title: "Logout") { action in
             let confirm = UIAlertController(title: "Are you sure, You want to log out?", message: nil, preferredStyle: .alert)
-            confirm.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            confirm.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {
                 _ in
                 do {
                     try Auth.auth().signOut()

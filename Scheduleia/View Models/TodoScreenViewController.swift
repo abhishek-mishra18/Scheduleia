@@ -74,7 +74,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
         let task = model[indexPath.row]
         vc?.titleString = task.title
         vc?.descriptionString = task.description
-        vc?.createdString = String(task.time)
+        vc?.createdString = task.time
         vc?.deadlineString = task.deadline
         vc?.priority = task.priority
         navigationController?.pushViewController(vc!, animated: true)
@@ -205,19 +205,6 @@ extension TodoScreenViewController: deleteTodoItemFromTable{
     }
     
         func editCell(_ cell: TodoItemTableViewCell) {
-            //var stringPriority: String
-            
-//            switch cell.priority{
-//            case 0:
-//                stringPriority = "High"
-//            case 1:
-//                stringPriority = "Medium"
-//            case 2:
-//                stringPriority = "Low"
-//            default:
-//                stringPriority = "Unspecified"
-//            }
-            
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as? AddNewViewController
             
             vc?.titleString = cell.title
