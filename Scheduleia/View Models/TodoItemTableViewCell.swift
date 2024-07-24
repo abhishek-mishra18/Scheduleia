@@ -12,7 +12,7 @@ protocol deleteTodoItemFromTable {
 }
 class TodoItemTableViewCell: UITableViewCell {
     
-
+    
     @IBOutlet weak var colorLine: UIView!
     @IBOutlet weak var checkbox: UIButton!
     @IBOutlet weak var Deadline: UILabel!
@@ -45,12 +45,12 @@ class TodoItemTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     private func setupCell() {
-            self.contentView.layer.cornerRadius = 10
-            self.contentView.layer.masksToBounds = true
+        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = true
         self.contentView.layer.borderWidth = 0.5
-            self.contentView.layer.borderColor = UIColor.lightGray.cgColor
-        }
+        self.contentView.layer.borderColor = UIColor.lightGray.cgColor
+    }
 }

@@ -157,17 +157,17 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
                                         docId: docId ?? "" )
                                     
                                     self.model.append(todo)
-                                        }
+                                }
                                 self.model.sort { (item1, item2) -> Bool in
-                                                                if item1.isDone == item2.isDone{
-                                                                    let dateFormatter = DateFormatter()
-                                                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                                                                    let date1 = dateFormatter.date(from: item1.deadline) ?? Date()
-                                                                    let date2 = dateFormatter.date(from: item2.deadline) ?? Date()
-                                                                    return date1 < date2
-                                                                }
-                                                                return !item1.isDone && item2.isDone
-                                                            }
+                                    if item1.isDone == item2.isDone{
+                                        let dateFormatter = DateFormatter()
+                                        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                        let date1 = dateFormatter.date(from: item1.deadline) ?? Date()
+                                        let date2 = dateFormatter.date(from: item2.deadline) ?? Date()
+                                        return date1 < date2
+                                    }
+                                    return !item1.isDone && item2.isDone
+                                }
                                 DispatchQueue.main.async {
                                     self.TableViewController.reloadData()
                                 }
@@ -179,7 +179,7 @@ class TodoScreenViewController: UIViewController, UITableViewDataSource, UITable
     }
 }
 
-    
+
 extension TodoScreenViewController: deleteTodoItemFromTable{
     
     func taskCompleted(_ cell: TodoItemTableViewCell) {
@@ -204,25 +204,25 @@ extension TodoScreenViewController: deleteTodoItemFromTable{
         }
     }
     
-        func editCell(_ cell: TodoItemTableViewCell) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as? AddNewViewController
-            
-            vc?.titleString = cell.title
-            vc?.descriptionString = cell.descriptionFilled
-            vc?.priorityEdit = cell.priority
-            vc?.deadLineEdit = cell.Deadline.text
-            
-            self.navigationController?.pushViewController(vc!, animated: true)
-        }
+    func editCell(_ cell: TodoItemTableViewCell) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as? AddNewViewController
+        
+        vc?.titleString = cell.title
+        vc?.descriptionString = cell.descriptionFilled
+        vc?.priorityEdit = cell.priority
+        vc?.deadLineEdit = cell.Deadline.text
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
 }
 
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */

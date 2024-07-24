@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     
     @IBOutlet weak var registerButton: UIButton!
@@ -39,7 +39,7 @@ class RegisterViewController: UIViewController {
         }
         
     }
-     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerButton.layer.cornerRadius = registerButton.frame.size.width/4
@@ -48,21 +48,21 @@ class RegisterViewController: UIViewController {
     }
     
     func setupActivityIndicator() {
-            activityIndicator = UIActivityIndicatorView(style: .large)
-                activityIndicator.center = view.center
-                activityIndicator.hidesWhenStopped = true
-                view.addSubview(activityIndicator)
-            }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
     }
-    */
-
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

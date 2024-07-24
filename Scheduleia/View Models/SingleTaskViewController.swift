@@ -8,7 +8,7 @@
 import UIKit
 
 class SingleTaskViewController: UIViewController {
-
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,7 +26,7 @@ class SingleTaskViewController: UIViewController {
     var createdString: String?
     var priority: Int?
     var deadlineString: String?
-
+    
     
     @IBAction func editButtonTapped(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "addNewVC") as! AddNewViewController
@@ -54,19 +54,19 @@ class SingleTaskViewController: UIViewController {
             priorityLabel.text = "Unspecified"
         }
         
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

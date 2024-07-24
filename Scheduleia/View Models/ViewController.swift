@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     let titleText = "📋 SCHEDULEIA"
-
+    
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var registerButton: UIButton!
@@ -39,13 +39,13 @@ class ViewController: UIViewController {
             })
             index += 1
         }
-
-
-
-
+        
+        
+        
+        
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
 
